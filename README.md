@@ -8,7 +8,7 @@ Razvijen je algoritam koji iz signala SpO₂ (zasićenost krvi kisikom) automats
 3. **Vremensko kašnjenje:** razlika između početka pada SpO₂ i početka apneje (početak apneje čita se iz XML datoteka s anotacijama).
 
 ## Analiza osjetljivosti
-Kako bi se provjerila robusnost metode, provedena je analiza osjetljivosti na duljinu prozora za određivanje referentne vrijednosti. Testirani su prozori od 20, 30, 35 i 40 sekundi te su uspoređeni dobivena srednja vrijednost kašnjenja i broj detektiranih epizoda. Srednje kašnjenje promijenilo se za manje od 0,5 sekundi, što pokazuje da rezultati ne ovise o ovom parametru. 
+Kako bi se provjerila robusnost metode, provedena je analiza osjetljivosti na duljinu prozora za određivanje referentne vrijednosti. Testirani su prozori od 20, 25, 30 i 40 sekundi te su uspoređeni dobivena srednja vrijednost kašnjenja i broj detektiranih epizoda. Srednje kašnjenje promijenilo se za manje od 0,5 sekundi, što pokazuje da rezultati ne ovise o ovom parametru. 
 
 ## Rezultati
 Srednja vrijednost vremenskog kašnjenja između prestanka disanja i početka pada SpO₂, izmjerena na 17 918 apnejskih epizoda kod 775 ispitanika, iznosi 19,49 ± 4,85 s (srednja vrijednost ± standardna devijacija).
