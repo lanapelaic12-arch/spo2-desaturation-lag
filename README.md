@@ -1,22 +1,22 @@
-# Sleep Medicine Data Modeling and Analysis – Master's Thesis
+# Modeliranje i analiza podataka u medicini spavanja – diplomski rad
 
-This project presents an algorithm that automatically detects the drop in blood oxygen saturation (SpO₂) following each apnea event, determines the onset of that drop, and computes the time lag between apnea onset and desaturation onset. The main contribution is an automated method for measuring this lag on a large set of recordings from the Sleep Heart Health Study (SHHS) database.
+Razvijen je algoritam koji iz signala SpO₂ (zasićenost krvi kisikom) automatski prepoznaje pad nakon svake apneje i određuje trenutak njegova početka, a zatim računa vremensko kašnjenje kao razliku između početka pada i početka apneje. Glavni doprinos rada je automatizirana metoda mjerenja kašnjenja na velikom skupu zapisa iz baze SHHS (Sleep Heart Health Study).
 
-## Method
-1. **Reference value:** the local maximum of the SpO₂ signal within a 20-second window after apnea onset. 
-2. **Desaturation onset:** within a 60-second window after apnea onset, the algorithm searches for a candidate point where SpO₂ falls below the reference value by at least 0.1%. The candidate is accepted only if the total drop reaches at least 3%. The algorithm then backtracks to the last point at the reference value before the drop, which is taken as the desaturation onset.
-3. **Time lag:** the difference between desaturation onset and apnea onset (apnea onset is read from the XML annotation files).
+## Način rada
+1. **Referentna vrijednost:** lokalni maksimum signala SpO₂ unutar prozora od 30 sekundi nakon početka apneje.
+2. **Početak pada:** unutar prozora od 60 sekundi nakon početka apneje traži se kandidat, točka u kojoj SpO₂ padne ispod referentne vrijednosti za najmanje 0,1 %. Kandidat se prihvaća ako ukupni pad dosegne najmanje 3 %. Algoritam se tada vraća na posljednju točku s referentnom vrijednošću prije pada i ta točka postaje početak pada.
+3. **Vremensko kašnjenje:** razlika između početka pada SpO₂ i početka apneje (početak apneje čita se iz XML datoteka s anotacijama).
 
-## Sensitivity Analysis
-To assess the robustness of the method, a sensitivity analysis was performed for the length of the reference-value window. The window was varied from 20 to 40 seconds (tested values: 20, 25, 30, 40) and the resulting mean time lag and number of detected episodes were compared. The mean lag changed by less than 0,5 seconds across the tested windows, indicating that the results are not strongly dependent on this parameter. 
+## Analiza osjetljivosti
+Kako bi se provjerila robusnost metode, provedena je analiza osjetljivosti na duljinu prozora za određivanje referentne vrijednosti. Testirani su prozori od 20, 30, 35 i 40 sekundi te su uspoređeni dobivena srednja vrijednost kašnjenja i broj detektiranih epizoda. Srednje kašnjenje promijenilo se za manje od 0,5 sekundi, što pokazuje da rezultati ne ovise o ovom parametru. 
 
-## Results
-The mean time lag between the cessation of breathing and the onset of SpO₂ desaturation, measured on 17,918 apnea episodes from 775 subjects, is 19.49 ± 4.85 s (mean ± SD).
+## Rezultati
+Srednja vrijednost vremenskog kašnjenja između prestanka disanja i početka pada SpO₂, izmjerena na 17 918 apnejskih epizoda kod 775 ispitanika, iznosi 19,49 ± 4,85 s (srednja vrijednost ± standardna devijacija).
 
-<img width="865" height="751" alt="Distribution of time lag" src="https://github.com/user-attachments/assets/a79d8025-65dd-43c6-93f2-ef87275096de" />
+<img width="865" height="751" alt="Raspodjela vremenskog kašnjenja" src="https://github.com/user-attachments/assets/a79d8025-65dd-43c6-93f2-ef87275096de" />
 
-## Technologies
-Python, Jupyter, Pandas, NumPy, SciPy, bpyEDFlib
+## Tehnologije
+Python, Jupyter, Pandas, NumPy, SciPy, pyEDFlib
 
-## Data
-SHHS data are not included in this repository. They can be requested through the National Sleep Research Resource (NSRR): https://sleepdata.org/datasets/shhs
+## Podaci
+Podaci iz baze SHHS nisu uključeni u repozitorij, a mogu se zatražiti putem platforme NSRR: https://sleepdata.org/datasets/shhs
