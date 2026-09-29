@@ -3,7 +3,7 @@
 Razvijen je algoritam koji iz signala SpO₂ (zasićenost krvi kisikom) automatski prepoznaje pad nakon svake apneje i određuje trenutak njegova početka, a zatim računa vremensko kašnjenje kao razliku između početka pada i početka apneje. Glavni doprinos rada je automatizirana metoda mjerenja kašnjenja na velikom skupu zapisa iz baze SHHS (Sleep Heart Health Study).
 
 ## Način rada
-1. **Referentna vrijednost:** lokalni maksimum signala SpO₂ unutar prozora od 30 sekundi nakon početka apneje.
+1. **Referentna vrijednost:** lokalni maksimum signala SpO₂ unutar prozora od 20 sekundi nakon početka apneje.
 2. **Početak pada:** unutar prozora od 60 sekundi nakon početka apneje traži se kandidat, točka u kojoj SpO₂ padne ispod referentne vrijednosti za najmanje 0,1 %. Kandidat se prihvaća ako ukupni pad dosegne najmanje 3 %. Algoritam se tada vraća na posljednju točku s referentnom vrijednošću prije pada i ta točka postaje početak pada.
 3. **Vremensko kašnjenje:** razlika između početka pada SpO₂ i početka apneje (početak apneje čita se iz XML datoteka s anotacijama).
 
