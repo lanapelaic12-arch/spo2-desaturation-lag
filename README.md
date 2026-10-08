@@ -5,7 +5,7 @@ Razvijen je algoritam koji iz signala SpO₂ (zasićenost krvi kisikom) automats
 ## Način rada
 1. Vrijednosti izvan 50-100% se odbacuju i zamijenjuju Nan vrijednostima.
 2. **Referentna vrijednost:** lokalni maksimum signala SpO₂ unutar prozora od 20 sekundi nakon početka apneje.
-3. **Početak pada:** unutar prozora od 60 sekundi nakon početka apneje traži se kandidat, točka u kojoj SpO₂ padne ispod referentne vrijednosti za najmanje 0,1 %. Kandidat se prihvaća ako ukupni pad dosegne najmanje 3 %. Algoritam se tada vraća na posljednju točku s referentnom vrijednošću prije pada i ta točka postaje početak pada.
+3. **Početak pada:** unutar prozora od 60 sekundi nakon početka apneje traži se kandidat, točka u kojoj SpO₂ padne ispod referentne vrijednosti za najmanje 0,1%. Kandidat se prihvaća ako ukupni pad dosegne najmanje 3%. Algoritam se tada vraća na posljednju točku s referentnom vrijednošću prije pada i ta točka postaje početak pada.
 4. **Vremensko kašnjenje:** razlika između početka pada SpO₂ i početka apneje (početak apneje čita se iz XML datoteka s anotacijama).
 
 ## Analiza osjetljivosti
